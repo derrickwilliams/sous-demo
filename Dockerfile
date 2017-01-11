@@ -6,5 +6,4 @@ RUN \
   # [ -f customstring ] && CUSTOMSTRING=$(< customstring); \
   go build -ldflags "-X 'main.CustomString=$(cat customstring)'" .
 
-ENTRYPOINT ["sh"]
-CMD ["-c", "/go/src/github.com/opentable/sous-demo/sous-demo"]
+CMD ["sh", "-c", "/go/src/github.com/opentable/sous-demo/sous-demo"]
