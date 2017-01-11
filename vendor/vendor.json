@@ -1,0 +1,19 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "NC6sRRBg4e1wHOkOu2doF24QWh0=",
+			"path": "golang.org/x/tools/godoc/vfs",
+			"revision": "5d76f8ce4fe6027ed92e3f05471193f1f595906d",
+			"revisionTime": "2017-01-10T22:20:17Z"
+		},
+		{
+			"checksumSHA1": "Qwc7VecyIh84Ol8n9J9DUwZQtII=",
+			"path": "golang.org/x/tools/godoc/vfs/mapfs",
+			"revision": "5d76f8ce4fe6027ed92e3f05471193f1f595906d",
+			"revisionTime": "2017-01-10T22:20:17Z"
+		}
+	],
+	"rootPath": "github.com/opentable/sous-demo"
+}
