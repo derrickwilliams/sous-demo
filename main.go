@@ -6,7 +6,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"strings"
 )
 
 //go:generate inlinefiles --package=main --vfs=Templates --glob=* ./templates vfs_templates.go
