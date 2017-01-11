@@ -20,12 +20,12 @@ func main() {
 	port := os.Getenv("PORT0")
 	indexTmplF, err := Templates.Open("index.html.tmpl")
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	indexTmplB, err := ioutil.ReadAll(indexTmplF)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	indexTmpl := template.Must(template.New("index").Parse(string(indexTmplB)))
 
@@ -41,5 +41,5 @@ func main() {
 	})
 
 	log.Printf("Starting up - serving on %s:%s", host, port)
-	http.ListenAndServe(strings.Join([]string{host, port}, ":"), nil)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
