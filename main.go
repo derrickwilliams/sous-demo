@@ -3,6 +3,7 @@ package main
 import (
 	"html/template"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 	"strings"
@@ -13,6 +14,8 @@ import (
 var CustomString = "the Sous Demo App"
 
 func main() {
+	log.SetFlags(log.Flags() | log.Lshortfile | log.Ltime)
+	log.Print("Booting...")
 	host := os.Getenv("TASK_HOST")
 	port := os.Getenv("PORT0")
 	indexTmplF, err := Templates.Open("index.html.tmpl")
@@ -33,8 +36,10 @@ func main() {
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, rq *http.Request) {
+		log.Printf("Handling request: %v", rq)
 		indexTmpl.Execute(w, indexData)
 	})
 
+	log.Printf("Starting up - serving on %s:%s", host, port)
 	http.ListenAndServe(strings.Join([]string{host, port}, ":"), nil)
 }
