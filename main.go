@@ -10,7 +10,10 @@ import (
 
 //go:generate inlinefiles --package=main --vfs=Templates --glob=* ./templates vfs_templates.go
 
-var CustomString = "the Sous Demo App"
+var (
+	CustomString      = "the Sous Demo App"
+	Version, Revision string
+)
 
 func main() {
 	log.SetFlags(log.Flags() | log.Lshortfile | log.Ltime)
@@ -29,9 +32,11 @@ func main() {
 	indexTmpl := template.Must(template.New("index").Parse(string(indexTmplB)))
 
 	indexData := struct {
-		CustomString string
+		CustomString, Version, Revision string
 	}{
 		CustomString: CustomString,
+		Version:      Version,
+		Revision:     Revision,
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, rq *http.Request) {
