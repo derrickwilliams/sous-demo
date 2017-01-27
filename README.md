@@ -9,5 +9,7 @@ demonstrate Sous deployment into a Singularity cluster.
 ./open-demo.sh # works on Macs, echoes a URL for others
 ./set-version.sh 0.0.14 "MyFirstName" # use the next patch. No spaces in the quotes!
 sous build
-sous deploy
+sous deploy -cluster ci-sf
+
+# there'll be some singularity wait here...
 ./open-demo.sh
