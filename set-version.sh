@@ -12,7 +12,7 @@ if [ $# -ge 2 ]; then
 fi
 
 echo "$customtext" > customstring
-git commit -am "Updating version to $1"
+git commit --no-gpg-sign -am "Updating version to $1"
 git tag "$1"
 git push
 git push --tags
