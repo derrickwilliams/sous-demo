@@ -13,6 +13,6 @@ fi
 
 echo "$customtext" > customstring
 git commit --no-gpg-sign -am "Updating version to $1"
-git tag "$1"
+git tag -am "$1" $1
 git push
 git push --tags
