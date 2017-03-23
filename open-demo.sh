@@ -1,8 +1,19 @@
 #!/bin/bash
 set -x
 
-URL=$(cygnus -x 1 http://singularity-qa-sf.otenv.com | grep 'sous-demo.*ci' | awk '{ print $3 ":" $4 }' | tail -n 1)
-URL="http://$URL"
-echo $URL
+democluster=ci
+singularity=qa-sf
 
-open $URL
+if [ $# -ge 1 ]; then
+  democluster=$1
+fi
+
+if [ $# -ge 2 ]; then
+  singularity=$2
+fi
+
+URL=$(cygnus -x 1 "http://singularity-${singularity}.otenv.com" | grep "sous-demo.*${democluster}" | awk '{ print $3 ":" $4 }' | tail -n 1)
+URL="http://$URL"
+echo "$URL"
+
+open "$URL"
